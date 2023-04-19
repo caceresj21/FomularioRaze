@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    IEnumerable<string> strList = new List<string> { "DAW","Redes","Sistemas infomaticos","Matematica IV"};
+ 
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    Nombre de usuario:
+    @Html.TextBox("txtUserName","Valor de prueba", new {@class="form-control"})
+</div>
+
+<div>
+    Password:
+    @Html.Password("Contraseña","",new{@clas="form-control"})
+</div>
+
+<div>
+    Seleccione:
+    @Html.RadioButton("Genero","Masculino",true,new{id="masculino"})
+    Masculino
+    @Html.RadioButton("Genero","Femenino",false,new{id="femenino"})
+    Femenino
+</div>
+
+<div>
+    Address:
+    @Html.TextArea("Direccion","Ingrese su direccion",new {@class ="form-contol", id="idDireccion"})
+</div>
+
+<div>
+    Pasatiempos:
+    @Html.CheckBox("Bailar")
+    Bailar
+    @Html.CheckBox("Correr")
+    Correr
+    @Html.CheckBox("Escalar")
+    Escalar
+    @Html.CheckBox("Pelicula")
+    Peliculas
+</div>
+
+<div>
+    Cursos:
+    @Html.DropDownList("ddlCurso", new SelectList(strList,strList.FirstOrDefault()),"--Selecciona curso--")
+</div>
+
+<div>
+    Conocimientos:
+    @Html.ListBox("Seleccionar habilidades",new List<SelectListItem>{
+    new SelectListItem{Text="C#",Value ="1"},
+    new SelectListItem{Text="ASP.NET",Value ="2"},
+    new SelectListItem{Text="ASP.NET Core",Value ="3"},
+    new SelectListItem{Text="Azure",Value ="4"}
+    })
+</div>
+
+<div>
+    <button type="button" class="btn  btn-success">Enviar Datos</button>
+</div>
